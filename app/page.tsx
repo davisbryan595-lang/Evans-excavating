@@ -681,6 +681,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Service Detail Modal */}
+      <ServiceDetailModal isOpen={isModalOpen} onOpenChange={setIsModalOpen} service={selectedService} />
+
       <Footer />
     </main>
   )
