@@ -6,11 +6,13 @@ import { Footer } from "@/components/footer"
 import { Preloader } from "@/components/preloader"
 import { AnimatedCounter } from "@/components/animated-counter"
 import { ServiceCard } from "@/components/service-card"
-import { ChevronLeft, ChevronRight, Zap, Shield, Users, DollarSign, Phone } from "lucide-react"
+import { ChevronLeft, ChevronRight, Zap, Shield, Users, DollarSign, Phone, X, Check } from "lucide-react"
+import Image from "next/image"
 
 export default function Home() {
   const [carouselIndex, setCarouselIndex] = useState(0)
   const [autoPlay, setAutoPlay] = useState(true)
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   const services = [
     {
@@ -18,25 +20,131 @@ export default function Home() {
       title: "Quick & Efficient Tree Removal",
       description:
         "Safe and rapid tree removal services using state-of-the-art equipment and experienced professionals.",
-      image: "/tree-removal-equipment.jpg",
+      image: "https://images.pexels.com/photos/6218318/pexels-photo-6218318.jpeg",
     },
     {
       icon: <Shield size={24} />,
       title: "Safe Around Houses & Power Lines",
       description: "Precision work around your property with safety protocols for homes and electrical infrastructure.",
-      image: "/safe-tree-cutting.jpg",
+      image: "https://images.pexels.com/photos/13790935/pexels-photo-13790935.jpeg",
     },
     {
       icon: <Users size={24} />,
       title: "Reliable Professional Crew",
       description: "Fully licensed and insured team with 15+ years of combined excavating experience.",
-      image: "/professional-crew.jpg",
+      image: "https://images.pexels.com/photos/8961068/pexels-photo-8961068.jpeg",
     },
     {
       icon: <DollarSign size={24} />,
       title: "Affordable Rates",
       description: "Competitive pricing without compromising on quality or safety standards.",
-      image: "/budget-friendly.jpg",
+      image: "https://images.pexels.com/photos/33321431/pexels-photo-33321431.jpeg",
+    },
+  ]
+
+  const galleryImages = [
+    {
+      src: "https://images.pexels.com/photos/188679/pexels-photo-188679.jpeg",
+      alt: "Excavator and truck in operation",
+      category: "Equipment",
+      title: "Heavy Equipment Operations",
+    },
+    {
+      src: "https://images.pexels.com/photos/6218318/pexels-photo-6218318.jpeg",
+      alt: "Professional arborist cutting tree with chainsaw",
+      category: "Services",
+      title: "Expert Tree Cutting",
+    },
+    {
+      src: "https://images.pexels.com/photos/10349589/pexels-photo-10349589.jpeg",
+      alt: "Professional construction team workers",
+      category: "Team",
+      title: "Skilled Professional Team",
+    },
+    {
+      src: "https://images.pexels.com/photos/33321431/pexels-photo-33321431.jpeg",
+      alt: "Wheel loader moving materials",
+      category: "Equipment",
+      title: "Advanced Machinery",
+    },
+    {
+      src: "https://images.pexels.com/photos/27001161/pexels-photo-27001161.jpeg",
+      alt: "Workers clearing construction debris",
+      category: "Services",
+      title: "Site Clearance & Cleanup",
+    },
+    {
+      src: "https://images.pexels.com/photos/8961068/pexels-photo-8961068.jpeg",
+      alt: "Construction workers in safety gear",
+      category: "Team",
+      title: "Safety-Focused Professionals",
+    },
+    {
+      src: "https://images.pexels.com/photos/1188554/pexels-photo-1188554.jpeg",
+      alt: "Aerial view of construction site",
+      category: "Projects",
+      title: "Large Scale Projects",
+    },
+    {
+      src: "https://images.pexels.com/photos/6474294/pexels-photo-6474294.jpeg",
+      alt: "Construction worker at site",
+      category: "Services",
+      title: "Professional Expertise",
+    },
+  ]
+
+  const pricingPlans = [
+    {
+      name: "Small Tree Removal",
+      price: "$299",
+      description: "Up to 30ft trees",
+      features: [
+        "Single tree removal",
+        "Basic debris removal",
+        "Same-day service",
+        "Free consultation",
+      ],
+      highlighted: false,
+    },
+    {
+      name: "Standard Package",
+      price: "$599",
+      description: "Up to 60ft trees",
+      features: [
+        "1-3 tree removal",
+        "Complete debris cleanup",
+        "Stump grinding included",
+        "Site restoration",
+        "24/7 emergency support",
+      ],
+      highlighted: true,
+    },
+    {
+      name: "Premium Service",
+      price: "$999",
+      description: "Large scale projects",
+      features: [
+        "Multiple tree removal",
+        "Full land clearing",
+        "Professional disposal",
+        "Complete site restoration",
+        "Dedicated project manager",
+        "Insurance coordination",
+      ],
+      highlighted: false,
+    },
+    {
+      name: "Emergency Response",
+      price: "Call",
+      description: "24/7 storm cleanup",
+      features: [
+        "Rapid response",
+        "Storm damage cleanup",
+        "Insurance claim help",
+        "24/7 availability",
+        "Priority scheduling",
+      ],
+      highlighted: false,
     },
   ]
 
@@ -66,22 +174,20 @@ export default function Home() {
       <Preloader />
       <Navbar />
 
-      {/* Hero Section with Video Background */}
+      {/* Hero Section with HD Image Background */}
       <section className="relative w-full h-screen flex items-center justify-center pt-16 overflow-hidden">
-        {/* Background video placeholder with gradient overlay */}
+        {/* Background HD Image */}
         <div className="absolute inset-0 w-full h-full">
-          <div
-            className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"
-            style={{
-              backgroundImage:
-                "url(/placeholder.svg?height=1080&width=1920&query=excavator tree removal in action slow motion)",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundAttachment: "fixed",
-            }}
+          <Image
+            src="https://images.pexels.com/photos/188679/pexels-photo-188679.jpeg"
+            alt="Professional excavating equipment at work"
+            fill
+            className="object-cover"
+            priority
+            quality={100}
           />
           {/* Dark overlay */}
-          <div className="absolute inset-0 bg-background/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/50 to-background/70" />
 
           {/* Animated gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80 animate-pulse-glow" />
@@ -103,13 +209,13 @@ export default function Home() {
           >
             <a
               href="#services"
-              className="px-8 py-3 rounded-lg bg-background/50 border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-semibold hover:shadow-lg hover:shadow-primary/50"
+              className="px-8 py-3 rounded-lg bg-background/50 border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-semibold hover:shadow-lg hover:shadow-primary/50 hover:scale-105"
             >
               View Services
             </a>
             <a
               href="tel:863-993-5018"
-              className="flex items-center justify-center gap-2 px-8 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-semibold shadow-lg shadow-primary/50 hover:shadow-lg"
+              className="flex items-center justify-center gap-2 px-8 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-semibold shadow-lg shadow-primary/50 hover:shadow-lg hover:scale-105"
             >
               <Phone size={20} />
               Call Now
@@ -169,7 +275,7 @@ export default function Home() {
           <div className="hidden lg:grid grid-cols-4 gap-6 mb-12">
             {services.map((service, index) => (
               <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <ServiceCard {...service} href="/contact" />
+                <ServiceCard {...service} href="#contact" />
               </div>
             ))}
           </div>
@@ -178,7 +284,7 @@ export default function Home() {
           <div className="lg:hidden">
             <div className="relative mb-8">
               <div className="overflow-hidden rounded-xl">
-                <ServiceCard {...services[carouselIndex]} href="/contact" />
+                <ServiceCard {...services[carouselIndex]} href="#contact" />
               </div>
 
               {/* Carousel Controls */}
@@ -220,6 +326,152 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Gallery Section */}
+      <section id="gallery" className="py-20 px-4 bg-background/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+              Project <span className="text-primary">Gallery</span>
+            </h2>
+            <p className="text-foreground/70 text-lg max-w-2xl mx-auto">
+              See our professional work in action - quality equipment, skilled team, and exceptional results
+            </p>
+          </div>
+
+          {/* Gallery Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {galleryImages.map((image, index) => (
+              <div
+                key={index}
+                onClick={() => setSelectedImage(image.src)}
+                className="group relative h-72 rounded-lg overflow-hidden cursor-pointer border border-border hover:border-primary transition-all duration-300 animate-fade-in hover:shadow-lg hover:shadow-primary/20 hover:scale-105"
+                style={{ animationDelay: `${(index % 4) * 0.1}s` }}
+              >
+                {/* Image */}
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div className="w-full p-4 text-white">
+                    <h3 className="font-bold text-lg mb-1">{image.title}</h3>
+                    <p className="text-sm text-white/70">{image.category}</p>
+                  </div>
+                </div>
+
+                {/* Hover Icon */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center animate-pulse">
+                    <span className="text-2xl">+</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 animate-fade-in"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-4xl w-full h-[70vh] rounded-lg overflow-hidden">
+            <Image src={selectedImage} alt="Gallery image" fill className="object-contain" />
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary/90 transition-all duration-300 hover:scale-110"
+            >
+              <X size={24} />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-20 px-4 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+              Transparent <span className="text-primary">Pricing</span>
+            </h2>
+            <p className="text-foreground/70 text-lg max-w-2xl mx-auto">
+              Competitive rates with no hidden fees. Get started with a free consultation
+            </p>
+          </div>
+
+          {/* Pricing Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {pricingPlans.map((plan, index) => (
+              <div
+                key={index}
+                className={`relative rounded-xl p-8 border transition-all duration-300 animate-fade-in hover:scale-105 hover:shadow-xl ${
+                  plan.highlighted
+                    ? "border-primary bg-primary/5 shadow-lg shadow-primary/30 lg:scale-105"
+                    : "border-border bg-card hover:border-primary"
+                }`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Highlight Badge */}
+                {plan.highlighted && (
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <span className="bg-primary text-primary-foreground text-xs font-bold px-4 py-1 rounded-full">
+                      MOST POPULAR
+                    </span>
+                  </div>
+                )}
+
+                {/* Plan Header */}
+                <div className="mb-6">
+                  <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
+                  <p className="text-foreground/60 text-sm mb-4">{plan.description}</p>
+                  <div className="text-4xl font-bold text-primary">{plan.price}</div>
+                </div>
+
+                {/* Features List */}
+                <ul className="space-y-4 mb-8">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li
+                      key={featureIndex}
+                      className="flex items-start gap-3 text-foreground/80 animate-slide-up"
+                      style={{ animationDelay: `${index * 0.1 + featureIndex * 0.05}s` }}
+                    >
+                      <Check size={20} className="text-primary flex-shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA Button */}
+                <a
+                  href="tel:863-993-5018"
+                  className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 text-center block ${
+                    plan.highlighted
+                      ? "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/50"
+                      : "bg-background border border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                  }`}
+                >
+                  {plan.price === "Call" ? "Call for Quote" : "Get Started"}
+                </a>
+              </div>
+            ))}
+          </div>
+
+          {/* Pricing Note */}
+          <div className="max-w-3xl mx-auto bg-primary/10 border border-primary/30 rounded-lg p-6 text-center animate-fade-in">
+            <p className="text-foreground/80">
+              <span className="font-semibold text-primary">Free Consultation:</span> All prices are estimates. We provide
+              free on-site assessments to give you an accurate quote based on your specific needs.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-4 bg-primary/5 border-t border-primary/30">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
@@ -228,10 +480,10 @@ export default function Home() {
             Contact us today for a free quote. Our team is ready to serve you.
           </p>
           <a
-            href="/contact"
+            href="tel:863-993-5018"
             className="inline-block px-10 py-4 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-bold shadow-lg shadow-primary/50 hover:shadow-lg hover:scale-105"
           >
-            Get Your Free Quote
+            Call Now: 863-993-5018
           </a>
         </div>
       </section>
