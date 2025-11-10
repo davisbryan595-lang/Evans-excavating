@@ -10,9 +10,10 @@ interface ServiceCardProps {
   description: string
   href?: string
   image?: string
+  onClick?: () => void
 }
 
-export function ServiceCard({ icon, title, description, href = "/contact", image }: ServiceCardProps) {
+export function ServiceCard({ icon, title, description, href = "/contact", image, onClick }: ServiceCardProps) {
   return (
     <div className="group relative h-full overflow-hidden rounded-xl border border-border bg-card/50 backdrop-blur hover:border-primary transition-all duration-500 hover:shadow-lg hover:shadow-primary/20 animate-fade-in">
       {/* Background image if provided */}
@@ -39,13 +40,23 @@ export function ServiceCard({ icon, title, description, href = "/contact", image
         </div>
 
         {/* Button */}
-        <Link
-          href={href}
-          className="inline-flex items-center gap-2 text-primary hover:text-primary font-semibold group-hover:gap-3 transition-all duration-300"
-        >
-          Learn More
-          <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-        </Link>
+        {onClick ? (
+          <button
+            onClick={onClick}
+            className="inline-flex items-center gap-2 text-primary hover:text-primary font-semibold group-hover:gap-3 transition-all duration-300 cursor-pointer bg-none border-none p-0"
+          >
+            Learn More
+            <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </button>
+        ) : (
+          <Link
+            href={href}
+            className="inline-flex items-center gap-2 text-primary hover:text-primary font-semibold group-hover:gap-3 transition-all duration-300"
+          >
+            Learn More
+            <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+        )}
       </div>
     </div>
   )
