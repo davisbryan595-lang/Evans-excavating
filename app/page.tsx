@@ -489,6 +489,118 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-4 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+              Get In <span className="text-primary">Touch</span>
+            </h2>
+            <p className="text-foreground/70 text-lg max-w-2xl mx-auto">
+              Have questions or ready to schedule your service? Contact us today. We're here to help!
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            {/* Contact Information */}
+            <div className="space-y-8">
+              {/* Phone */}
+              <div className="animate-fade-in" style={{ animationDelay: "0.1s" }}>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                    <Phone className="text-primary" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-2 text-lg">Call Us</h3>
+                    <p className="text-foreground/70 mb-1">Main Line</p>
+                    <a href="tel:863-993-5018" className="text-primary font-semibold hover:text-primary/80 transition-colors">
+                      (863) 993-5018
+                    </a>
+                    <p className="text-foreground/70 text-sm mt-2">Available 24/7 for emergencies</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                    <Mail className="text-primary" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-2 text-lg">Email Us</h3>
+                    <a href="mailto:Evansexcavatingservices@yahoo.com" className="text-primary hover:text-primary/80 transition-colors break-all">
+                      Evansexcavatingservices@yahoo.com
+                    </a>
+                    <p className="text-foreground/70 text-sm mt-2">We'll respond within 24 hours</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Location */}
+              <div className="animate-fade-in" style={{ animationDelay: "0.3s" }}>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="text-primary" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-2 text-lg">Location</h3>
+                    <p className="text-foreground/70">
+                      Arcadia, FL 34266
+                      <br />
+                      <span className="text-sm">Serving all of Central Florida</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Hours */}
+              <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                    <Clock className="text-primary" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-2 text-lg">Hours</h3>
+                    <div className="text-foreground/70 text-sm space-y-1">
+                      <p>Monday - Friday: 7:00 AM - 6:00 PM</p>
+                      <p>Saturday: 8:00 AM - 5:00 PM</p>
+                      <p>Sunday: 24/7 Emergency Service</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="lg:col-span-2">
+              <div className="bg-card border border-border rounded-xl p-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+                <h3 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h3>
+                <ContactForm />
+              </div>
+            </div>
+          </div>
+
+          {/* Why Choose Us */}
+          <div className="bg-primary/5 border border-primary/30 rounded-xl p-8 animate-fade-in" style={{ animationDelay: "0.5s" }}>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-2">15+</div>
+                <p className="text-foreground/70">Years of Experience</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-2">2000+</div>
+                <p className="text-foreground/70">Projects Completed</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                <p className="text-foreground/70">Customer Satisfaction</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   )
