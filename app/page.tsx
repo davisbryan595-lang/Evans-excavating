@@ -6,7 +6,8 @@ import { Footer } from "@/components/footer"
 import { Preloader } from "@/components/preloader"
 import { AnimatedCounter } from "@/components/animated-counter"
 import { ServiceCard } from "@/components/service-card"
-import { ChevronLeft, ChevronRight, Zap, Shield, Users, DollarSign, Phone, X, Check } from "lucide-react"
+import { ContactForm } from "@/components/contact-form"
+import { ChevronLeft, ChevronRight, Zap, Shield, Users, DollarSign, Phone, X, Check, MapPin, Mail, Clock } from "lucide-react"
 import Image from "next/image"
 
 export default function Home() {
