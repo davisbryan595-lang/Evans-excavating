@@ -7,6 +7,7 @@ import { Preloader } from "@/components/preloader"
 import { AnimatedCounter } from "@/components/animated-counter"
 import { ServiceCard } from "@/components/service-card"
 import { ContactForm } from "@/components/contact-form"
+import { ServiceDetailModal } from "@/components/service-detail-modal"
 import { ChevronLeft, ChevronRight, Zap, Shield, Users, DollarSign, Phone, X, Check, MapPin, Mail, Clock } from "lucide-react"
 import Image from "next/image"
 
