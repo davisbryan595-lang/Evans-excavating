@@ -31,7 +31,8 @@ export function ContactForm() {
 
     try {
       // Using Formspree for email handling (free service, no backend needed)
-      const response = await fetch("https://formspree.io/f/xyzgwrnb", {
+      // Form automatically sends to Evansexcavatingservices@yahoo.com
+      const response = await fetch("https://formspree.io/f/mvgepoza", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -42,6 +43,7 @@ export function ContactForm() {
           phone: formData.phone,
           subject: formData.subject,
           message: formData.message,
+          _replyto: formData.email,
         }),
       })
 
