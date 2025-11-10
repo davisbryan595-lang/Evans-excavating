@@ -8,6 +8,7 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    qualities: [75, 100],
     remotePatterns: [
       {
         protocol: 'https',
@@ -20,6 +21,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'blob.v0.app',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
       },
     ],
   },
