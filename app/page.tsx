@@ -15,6 +15,8 @@ export default function Home() {
   const [carouselIndex, setCarouselIndex] = useState(0)
   const [autoPlay, setAutoPlay] = useState(true)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedService, setSelectedService] = useState<(typeof services)[0] | null>(null)
 
   const services = [
     {
@@ -23,24 +25,96 @@ export default function Home() {
       description:
         "Safe and rapid tree removal services using state-of-the-art equipment and experienced professionals.",
       image: "https://images.pexels.com/photos/6218318/pexels-photo-6218318.jpeg",
+      fullDescription:
+        "Our professional tree removal service uses the latest equipment and proven techniques to safely remove trees of any size. Whether you need to remove a single tree or clear an entire lot, we handle every project with precision and care. We work with residential and commercial properties, and our crew is trained to handle complex removals around structures and utilities.",
+      benefits: [
+        "Same-day service available",
+        "Fully insured and licensed",
+        "Professional waste disposal",
+        "Tree preservation consultation available",
+        "Free estimates on all projects",
+        "Emergency storm damage response",
+      ],
+      features: [
+        "Professional arborists on staff",
+        "State-of-the-art equipment",
+        "Debris removal and cleanup included",
+        "Stump grinding available",
+        "Environmentally responsible practices",
+        "Certified safe around utilities",
+      ],
     },
     {
       icon: <Shield size={24} />,
       title: "Safe Around Houses & Power Lines",
       description: "Precision work around your property with safety protocols for homes and electrical infrastructure.",
       image: "https://images.pexels.com/photos/13790935/pexels-photo-13790935.jpeg",
+      fullDescription:
+        "Working around structures and power lines requires expertise and precision. Our crew is specially trained in advanced rigging techniques and safety procedures to protect your property, your family, and critical infrastructure. We coordinate with utility companies when necessary and use specialized equipment designed for precision removal in tight spaces.",
+      benefits: [
+        "GPS-guided equipment",
+        "Live power line coordination",
+        "Property protection planning",
+        "Insurance claim assistance",
+        "Certified for utility work",
+        "Specialized rigging equipment",
+      ],
+      features: [
+        "Advanced rigging systems",
+        "Precision cutting techniques",
+        "Property damage prevention",
+        "Insurance documentation",
+        "Utility company coordination",
+        "Emergency response capabilities",
+      ],
     },
     {
       icon: <Users size={24} />,
       title: "Reliable Professional Crew",
       description: "Fully licensed and insured team with 15+ years of combined excavating experience.",
       image: "https://images.pexels.com/photos/8961068/pexels-photo-8961068.jpeg",
+      fullDescription:
+        "Our team consists of certified professionals with extensive experience in tree removal and excavation. Every crew member undergoes regular safety training and maintains industry certifications. We pride ourselves on professionalism, punctuality, and delivering exceptional customer service on every project.",
+      benefits: [
+        "15+ years combined experience",
+        "Certified professionals",
+        "Background checked staff",
+        "Exceptional customer reviews",
+        "Continuous training program",
+        "Professional liability insurance",
+      ],
+      features: [
+        "Certified arborists",
+        "OSHA-trained crew members",
+        "Background-verified staff",
+        "Professional uniforms and vehicles",
+        "Real-time project updates",
+        "Dedicated customer service",
+      ],
     },
     {
       icon: <DollarSign size={24} />,
       title: "Affordable Rates",
       description: "Competitive pricing without compromising on quality or safety standards.",
       image: "https://images.pexels.com/photos/33321431/pexels-photo-33321431.jpeg",
+      fullDescription:
+        "We believe in transparent pricing and fair rates for all our services. We provide free on-site estimates with no hidden charges or surprise fees. Our pricing is competitive while maintaining the highest standards of safety and quality.",
+      benefits: [
+        "Free estimates",
+        "Competitive pricing",
+        "Flexible payment options",
+        "Satisfaction guarantee",
+        "Transparent billing",
+        "Price matching available",
+      ],
+      features: [
+        "No hidden charges",
+        "Detailed written estimates",
+        "Payment plans available",
+        "Senior and military discounts",
+        "Early booking discounts",
+        "Seasonal specials",
+      ],
     },
   ]
 
