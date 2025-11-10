@@ -175,7 +175,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section with HD Image Background */}
-      <section className="relative w-full h-screen flex items-center justify-center pt-16 overflow-hidden">
+      <section id="home" className="relative w-full h-screen flex items-center justify-center pt-16 overflow-hidden">
         {/* Background HD Image */}
         <div className="absolute inset-0 w-full h-full">
           <Image
