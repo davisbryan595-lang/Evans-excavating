@@ -356,7 +356,7 @@ export default function Home() {
           <div className="hidden lg:grid grid-cols-4 gap-6 mb-12">
             {services.map((service, index) => (
               <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <ServiceCard {...service} href="#contact" />
+                <ServiceCard {...service} onClick={() => openServiceModal(service)} />
               </div>
             ))}
           </div>
@@ -365,7 +365,7 @@ export default function Home() {
           <div className="lg:hidden">
             <div className="relative mb-8">
               <div className="overflow-hidden rounded-xl">
-                <ServiceCard {...services[carouselIndex]} href="#contact" />
+                <ServiceCard {...services[carouselIndex]} onClick={() => openServiceModal(services[carouselIndex])} />
               </div>
 
               {/* Carousel Controls */}
