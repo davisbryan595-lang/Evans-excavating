@@ -245,6 +245,11 @@ export default function Home() {
     setAutoPlay(false)
   }
 
+  const openServiceModal = (service: (typeof services)[0]) => {
+    setSelectedService(service)
+    setIsModalOpen(true)
+  }
+
   return (
     <main className="min-h-screen bg-background">
       <Preloader />
