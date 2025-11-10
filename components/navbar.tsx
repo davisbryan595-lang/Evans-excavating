@@ -19,10 +19,11 @@ export function Navbar() {
   }, [])
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/services", label: "Services" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "#home", label: "Home" },
+    { href: "#services", label: "Services" },
+    { href: "#gallery", label: "Gallery" },
+    { href: "#pricing", label: "Pricing" },
+    { href: "#contact", label: "Contact" },
   ]
 
   return (
@@ -34,16 +35,16 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative w-10 h-10">
+          <Link href="#home" className="flex items-center gap-3 group">
+            <div className="relative w-20 h-20 flex-shrink-0">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/evans-removebg-preview-7PdxXtOlfN9tLqaBft9ZvLCCZEQmRB.png"
                 alt="Evans Excavating"
                 fill
-                className="object-contain"
+                className="object-contain group-hover:animate-glow transition-all duration-300"
               />
             </div>
-            <span className="text-primary font-bold text-lg hidden sm:inline">EVANS</span>
+            <span className="text-primary font-bold text-xl hidden sm:inline group-hover:text-primary/80 transition-colors duration-300">EVANS</span>
           </Link>
 
           {/* Desktop Navigation */}
